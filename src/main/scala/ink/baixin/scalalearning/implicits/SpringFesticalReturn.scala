@@ -1,6 +1,7 @@
 package ink.baixin.scalalearning.implicits
 
 case class Remote(address: String)
+
 case class Home(address: String)
 
 object Transportation {

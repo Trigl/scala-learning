@@ -1,6 +1,7 @@
 package ink.baixin.scalalearning.implicits
 
 object Rectangle extends App {
+
   case class Rectangle(width: Int, height: Int)
 
   implicit class RectangleMaker(width: Int) {
