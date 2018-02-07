@@ -1,15 +1,11 @@
 package ink.baixin.scalalearning
 package implicits
 
-
 trait Lover {
-
-  def sendLoveHeart(lh: LoveHeart) {}
+  def sendLove(love: Love) {}
 }
 
-
-trait LoveHeart {
-
+trait Love {
   val event: Event
 
   val show = takeAction(event)
@@ -21,12 +17,10 @@ case class Event(str: String)
 
 
 object Lover {
-
-  implicit def function2LoveHeart(f: Event => Unit) = new LoveHeart {
+  implicit def function2Love(f: Event => Unit) = new Love {
+    val event = Event("Valentine is coming!")
 
     def takeAction(event: Event): Unit = f(event)
-
-    val event: Event = Event("Valentine is coming!")
   }
 }
 

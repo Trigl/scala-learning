@@ -1,17 +1,14 @@
-package ink.baixin.scalalearning.implicits
-
+package ink.baixin.scalalearning
+package implicits
 
 object SendLove extends App {
-
-  import Lover.function2LoveHeart
-
   class RemoteLover extends Lover {}
 
-  val lover = new RemoteLover
+  val lover: Lover = new RemoteLover
 
   // without implicit
-  lover.sendLoveHeart(
-    new LoveHeart {
+  lover.sendLove(
+    new Love {
       val event = Event("Valentine is coming!")
 
       def takeAction(event: Event) = {
@@ -21,8 +18,16 @@ object SendLove extends App {
   )
 
   // with implicit
-  lover.sendLoveHeart(
+  import Lover.function2Love
+
+  lover.sendLove(
     (_: Event) => println("Give a hug!")
   )
 
+  // explicit transform
+  lover.sendLove(
+    function2Love(
+      (_: Event) => println("Give a hug!")
+    )
+  )
 }
