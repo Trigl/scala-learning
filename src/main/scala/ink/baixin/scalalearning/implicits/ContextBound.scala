@@ -1,6 +1,6 @@
 package ink.baixin.scalalearning.implicits
 
-object ContextBounds extends App {
+object ContextBound extends App {
 
   println(maxListOrdering(List(1, 5, 10, 3)))
 
