@@ -1,5 +1,4 @@
-package ink.baixin.scalalearning
-package implicits
+package ink.baixin.scalalearning.implicits
 
 object SendLove extends App {
   class RemoteLover extends Lover {}

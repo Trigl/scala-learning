@@ -1,5 +1,4 @@
-package ink.baixin.scalalearning
-package implicits
+package ink.baixin.scalalearning.implicits
 
 trait Lover {
   def sendLove(love: Love) {}
@@ -15,7 +14,6 @@ trait Love {
 
 case class Event(str: String)
 
-
 object Lover {
   implicit def function2Love(f: Event => Unit) = new Love {
     val event = Event("Valentine is coming!")
@@ -23,6 +21,3 @@ object Lover {
     def takeAction(event: Event): Unit = f(event)
   }
 }
-
-
-
