@@ -44,8 +44,7 @@ object ContextBound extends App {
     }
 
   // context bound
-  def maxListOrdering[T: Ordering](elements: List[T])
-                                  (implicit ordering: Ordering[T]): T =
+  def maxListOrdering[T: Ordering](elements: List[T]): T =
     elements match {
       case List() =>
         throw new IllegalArgumentException("empty lists!")
