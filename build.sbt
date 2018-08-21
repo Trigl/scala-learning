@@ -4,6 +4,8 @@ version := "0.1"
 
 scalaVersion := "2.12.4"
 
+logLevel := Level.Info
+
 libraryDependencies ++= Seq(
   "io.netty" % "netty-all" % "4.1.25.Final",
   "com.github.scopt" %% "scopt" % "3.7.0",
@@ -22,6 +24,12 @@ lazy val subproject2 = (project in file("subproject2")).dependsOn(subproject1)
 lazy val root = (project in file("."))
   .aggregate(subproject1, subproject2)
   .dependsOn(subproject1, subproject2)
+
+// set the main class for packaging the main jar
+mainClass in (Compile, packageBin) := Some("ink.baixin.scalalearning.sbt.Hello")
+
+// set the main class for the main 'sbt run' task
+mainClass in (Compile, run) := Some("ink.baixin.scalalearning.sbt.Hello")
 
 PB.targets in Compile := Seq(
   scalapb.gen() -> (sourceManaged in Compile).value
